@@ -1,4 +1,5 @@
 import LoginPage from "../../support/pageObjects/loginPage";
+import loginData from "../../fixtures/loginData.json";
 
 describe('Login', () => {
     const loginPage = new LoginPage();
@@ -8,22 +9,22 @@ describe('Login', () => {
     })
 
     it('TCL_001', () => {
-        loginPage.fillUsername('Admin')
-        loginPage.fillPassword('admin123')
+        loginPage.fillUsername(loginData.username_TCL001)
+        loginPage.fillPassword(loginData.password_TCL001)
         loginPage.loginSuccessDashboardIntercepts()
         loginPage.submit()
         loginPage.loginSuccessUrl()
         loginPage.waitDashboardData()
     })
     it('TCL_002', () => {
-        loginPage.fillUsername('Admin')
-        loginPage.fillPassword('admin')
+        loginPage.fillUsername(loginData.username_TCL002)
+        loginPage.fillPassword(loginData.password_TCL002)
         loginPage.submit()
         loginPage.invalidCredentialsMessage()
     })
     it('TCL_003', () => {
-        loginPage.fillUsername('Adminnn')
-        loginPage.fillPassword('admin123')
+        loginPage.fillUsername(loginData.username_TCL003)
+        loginPage.fillPassword(loginData.password_TCL003)
         loginPage.submit()
         loginPage.invalidCredentialsMessage()
     })
@@ -34,32 +35,32 @@ describe('Login', () => {
         loginPage.requiredMessage()
     })
     it('TCL_005', () => {
-        loginPage.fillUsername('coba')
-        loginPage.fillPassword('coba123')
+        loginPage.fillUsername(loginData.username_TCL005)
+        loginPage.fillPassword(loginData.password_TCL005)
         loginPage.submit()
         loginPage.invalidCredentialsMessage()
     })
     it('TCL_006', () => {
         loginPage.emptyUsername()
-        loginPage.fillPassword('admin123')
+        loginPage.fillPassword(loginData.password_TCL006)
         loginPage.submit()
         loginPage.requiredMessage()
     })
     it('TCL_007', () => {
-        loginPage.fillUsername('Admin')
+        loginPage.fillUsername(loginData.username_TCL007)
         loginPage.emptyPassword()
         loginPage.submit()
         loginPage.requiredMessage()
     })
     it('TCL_008', () => {
-        loginPage.fillUsername('ADMIN')
-        loginPage.fillPassword('Admin123')
+        loginPage.fillUsername(loginData.username_TCL008)
+        loginPage.fillPassword(loginData.password_TCL008)
         loginPage.submit()
         loginPage.invalidCredentialsMessage()
     })
     it('TCL_009', () => {
-        loginPage.fillUsername('Admin')
-        loginPage.fillPassword('ADMIN123')
+        loginPage.fillUsername(loginData.username_TCL009)
+        loginPage.fillPassword(loginData.password_TCL009)
         loginPage.submit()
         loginPage.invalidCredentialsMessage()
     })
